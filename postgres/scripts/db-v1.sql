@@ -1,8 +1,5 @@
-CREATE DATABASE tickets;
-GRANT ALL PRIVILEGES ON DATABASE tickets TO program;
+CREATE DATABASE tickets owner program;
 
-CREATE DATABASE flights;
-GRANT ALL PRIVILEGES ON DATABASE flights TO program;
+CREATE DATABASE flights  owner program;
 
-CREATE DATABASE privileges;
-GRANT ALL PRIVILEGES ON DATABASE privileges TO program;
+CREATE DATABASE privileges owner program;
