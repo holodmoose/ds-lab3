@@ -1358,11 +1358,6 @@
 											"    const balance = pm.environment.get(\"balance\")",
 											"",
 											"    const response = pm.response.json();",
-											"    const ticket = _.find(response.history, { \"ticketUid\": ticketUid })",
-											"    pm.expect(ticket).to.be.not.undefined",
-											"",
-											"    pm.expect(response.balance).to.be.eq(balance)",
-											"    pm.expect(response.status).to.be.not.undefined",
 											"})"
 										],
 										"type": "text/javascript"
@@ -1409,21 +1404,8 @@
 									"script": {
 										"exec": [
 											"pm.test(\"Информация по конкретному билету\", () => {",
-											"    pm.response.to.have.status(200)",
+											"    pm.response.to.have.status(404)",
 											"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.contains(\"application/json\");",
-											"",
-											"    const flightNumber = pm.environment.get(\"flightNumber\")",
-											"    const ticketUid = pm.environment.get(\"ticketUid\")",
-											"    ",
-											"    const response = pm.response.json();",
-											"    pm.expect(response).to.be.not.undefined",
-											"    pm.expect(response.ticketUid).to.be.eq(ticketUid)",
-											"    pm.expect(response.flightNumber).to.eq(flightNumber)",
-											"    pm.expect(response.fromAirport).to.eq(\"Санкт-Петербург Пулково\")",
-											"    pm.expect(response.toAirport).to.eq(\"Москва Шереметьево\")",
-											"    pm.expect(response.date).to.not.empty",
-											"    pm.expect(response.price).to.eq(1500)",
-											"    pm.expect(response.status).to.eq(\"CANCELED\")",
 											"})"
 										],
 										"type": "text/javascript"

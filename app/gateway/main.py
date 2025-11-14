@@ -197,13 +197,14 @@ def delete_with_retry(
     x_user_name, ticket_uid, max_seconds: int = 10, interval: int = 1
 ):
     deadline = time.time() + max_seconds
-
     while time.time() < deadline:
         try:
             if privileges_service.get_user_privelge_transaction(
                 x_user_name, ticket_uid
             ):
                 privileges_service.rollback_transaction(x_user_name, ticket_uid)
+                print("deleted", time.time())
+                break
         except CircuitOpenException:
             time.sleep(interval)
 
