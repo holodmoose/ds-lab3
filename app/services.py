@@ -7,7 +7,7 @@ from functools import wraps
 def wrap_cb(service):
 
     def wrap_cb(fn):
-        cb = CircuitBreaker(service, failure_threshold=3, recovery_timeout=20)
+        cb = CircuitBreaker(service, window_size=5, failure_threshold=1, recovery_timeout=1)
 
         @wraps(fn)
         def wrapper(*args, **kwargs):
